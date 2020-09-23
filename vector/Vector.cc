@@ -7,6 +7,7 @@ class Vector{
 	Vector() : x{}, y{} {}
 	Vector(double x, double y) : x(x), y(y) {}
 	Vector(Vector const& vec) : x(vec.x), y(vec.y) {}
+	~Vector() = default;
 	private:
 	double x,y;
 	
@@ -37,8 +38,8 @@ class Vector{
 		return left;
 	}
 	
-	friend Vector operator-(Vector left, Vector const& other){
-		return Vector(left.x-other.x, left.y-other.y);
+	friend Vector operator-(Vector left, Vector const& right){
+		return Vector(left.x-right.x, left.y-right.y);
 	}
 	
 	Vector operator-(){
@@ -59,10 +60,6 @@ class Vector{
 
 	friend bool operator!= (Vector const& left, Vector const& right){
 		return !(left == right);
-	}
-	
-	Vector operator!(){
-		return Vector(-x , -y );
 	}
 	
 	Vector operator/ (double scalar){

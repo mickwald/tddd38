@@ -7,6 +7,7 @@ class Vector{
 	Vector();
 	Vector(double x, double y);
 	Vector(Vector const& vec);
+	~Vector();
 	double getX();
 	double getY();
 	Vector& operator=(Vector const& vec);
@@ -14,11 +15,10 @@ class Vector{
 	friend Vector operator+(Vector left, Vector const& right);
 	friend Vector operator-(Vector left, Vector const& right);
 	Vector& operator-();
-	friend Vector operator*(Vector const& vec, double scalar);
+	friend Vector operator*(Vector vec, double scalar);
 	friend Vector operator*(double scalar, Vector const& vec);
-	friend bool operator==(Vector const & left, Vector const& right);
-	friend bool operator!=(Vector const & left, Vector const& right);
-	Vector operator!();
+	friend bool operator==(Vector const& left, Vector const& right);
+	friend bool operator!=(Vector const& left, Vector const& right);
 	Vector operator/(double scalar);
 	double length();
 	friend std::ostream& operator<<(std::ostream& stream, Vector const& vec);
